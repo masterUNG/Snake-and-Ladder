@@ -27,8 +27,40 @@ public class SignUpActivity extends AppCompatActivity {
         //Bind Widget
         bindWidget();
 
+        //Avata Controller
+        avataController();
+
 
     }   //  Main Method
+
+    private void avataController() {
+
+        avataRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+
+                switch (i) {
+                    case R.id.radioButton:
+                        avataString = "0";
+                        break;
+                    case R.id.radioButton2:
+                        avataString = "1";
+                        break;
+                    case R.id.radioButton3:
+                        avataString = "2";
+                        break;
+                    case R.id.radioButton4:
+                        avataString = "3";
+                        break;
+                    case R.id.radioButton5:
+                        avataString = "4";
+                        break;
+                }   // switch
+
+            }   // onChecked
+        });
+
+    }   // avataController
 
     public void clickSignUpSign(View view) {
 
@@ -41,13 +73,35 @@ public class SignUpActivity extends AppCompatActivity {
             //Have Space
             Toast.makeText(SignUpActivity.this, "กรุณากรอกทุกช่อง คะ", Toast.LENGTH_SHORT).show();
 
-        } else {
-            //No Space
+        } else if (!checkAvataChoose()) {
+            //Not Choose Avata
+            Toast.makeText(SignUpActivity.this, "กรุณาเลือก Avata ด้วยคะ", Toast.LENGTH_SHORT).show();
 
-        }   // if
+        } else {
+            //Choose Avata Finish
+            confirmData();
+
+        }
+
 
     }   // clickSignUpSign
 
+    private void confirmData() {
+
+    }   // confirmData
+
+    private boolean checkAvataChoose() {
+
+        boolean bolAvataChoose = true; // Choose Avata
+
+        bolAvataChoose = avata1RadioButton.isChecked() ||
+                avata2RadioButton.isChecked() ||
+                avata3RadioButton.isChecked() ||
+                avata4RadioButton.isChecked() ||
+                avata5RadioButton.isChecked();
+
+        return bolAvataChoose;
+    }
 
 
     private void bindWidget() {
