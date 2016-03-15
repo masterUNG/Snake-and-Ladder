@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">"Snakes and Ladders "</string>
+
+    <string name="signin">เข้าสู่ระบบ</string>
+    <string name="signup">สมัครสมาชิก</string>
+
 </resources>
