@@ -20,7 +20,8 @@
         android:layout_height="wrap_content"
         android:text="@string/signup"
         android:id="@+id/button3"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentBottom="true"
+        android:onClick="clickSignUpSign" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -161,7 +162,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:id="@+id/ragAvata">
 
                 <RadioButton
                     android:layout_width="0dp"
