@@ -1,5 +1,7 @@
 package krirk.punjawoot.snakesandladders;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +18,8 @@ public class SignUpActivity extends AppCompatActivity {
     private RadioButton avata1RadioButton, avata2RadioButton, avata3RadioButton,
             avata4RadioButton, avata5RadioButton;
     private String nameString, userString, passwordString, avataString;
-
+    public int[] avataInts = {R.drawable.build1, R.drawable.build2,
+            R.drawable.build3, R.drawable.build4, R.drawable.build5};
 
 
     @Override
@@ -88,7 +91,33 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void confirmData() {
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setIcon(avataInts[Integer.parseInt(avataString)]);
+        builder.setTitle("คุณ " + nameString);
+        builder.setMessage("User = " + userString + "\n" +
+                "Password = " + passwordString);
+        builder.setCancelable(false);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                upDataToServer();
+                dialogInterface.dismiss();
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.show();
+
+
     }   // confirmData
+
+    private void upDataToServer() {
+
+    }   // upDataToServer
 
     private boolean checkAvataChoose() {
 
